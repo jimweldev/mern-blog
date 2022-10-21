@@ -1,0 +1,16 @@
+body {
+   overflow-x: hidden;
+}
+
+.dropdown-menu {
+   margin: 0 !important;
+}
+
+.pointer {
+   cursor: pointer;
+}
+
+.sidebar svg,
+.navbar svg {
+   width: 18px;
+}

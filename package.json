@@ -1,0 +1,26 @@
+{
+   "name": "mern-login-system",
+   "version": "1.0.0",
+   "description": "MERN Login System",
+   "main": "server.js",
+   "scripts": {
+      "start": "node backend/server.js",
+      "backend": "nodemon backend/server.js",
+      "frontend": "npm start --prefix frontend",
+      "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --force --prefix frontend && npm run build --prefix frontend"
+   },
+   "author": "Jimwel Dizon",
+   "license": "ISC",
+   "dependencies": {
+      "bcrypt": "^5.1.0",
+      "cors": "^2.8.5",
+      "dotenv": "^16.0.3",
+      "express": "^4.18.2",
+      "jsonwebtoken": "^8.5.1",
+      "mongoose": "^6.6.5",
+      "validator": "^13.7.0"
+   },
+   "devDependencies": {
+      "nodemon": "^2.0.20"
+   }
+}
