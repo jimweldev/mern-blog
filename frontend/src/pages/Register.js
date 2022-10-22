@@ -14,6 +14,7 @@ const Register = () => {
    const [email, setEmail] = useState('')
    const [password, setPassword] = useState('')
    const [confirmPassword, setConfirmPassword] = useState('')
+   const [name, setName] = useState('')
 
    const handleRegister = async (e) => {
       e.preventDefault()
@@ -21,12 +22,12 @@ const Register = () => {
       setIsLoading(true)
       setError(null)
 
-      const res = await fetch('api/auth/register', {
+      const res = await fetch('/api/auth/register', {
          method: 'POST',
          headers: {
             'Content-Type': 'application/json',
          },
-         body: JSON.stringify({ email, password, confirmPassword }),
+         body: JSON.stringify({ email, password, confirmPassword, name }),
       })
 
       const data = await res.json()
@@ -90,6 +91,18 @@ const Register = () => {
                         value={confirmPassword}
                         onChange={(e) => {
                            setConfirmPassword(e.target.value)
+                        }}
+                     />
+                  </div>
+                  <div className="mb-3">
+                     <label>Name</label>
+                     <input
+                        className="form-control form-control-lg"
+                        type="text"
+                        placeholder="Enter your name"
+                        value={name}
+                        onChange={(e) => {
+                           setName(e.target.value)
                         }}
                      />
                   </div>

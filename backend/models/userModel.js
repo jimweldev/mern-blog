@@ -14,6 +14,15 @@ const userSchema = new Schema(
          type: String,
          required: true,
       },
+      name: {
+         type: String,
+         required: true,
+      },
+      avatar: {
+         type: String,
+         default: 'avatar.jpg',
+         unique: true,
+      },
    },
    { timestamps: true }
 )

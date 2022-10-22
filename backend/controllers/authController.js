@@ -36,14 +36,19 @@ const loginUser = async (req, res) => {
    // generate access token
    const accessToken = generateAccessToken(user._id)
 
-   res.status(200).json({ email, accessToken })
+   res.status(200).json({
+      email: user.email,
+      accessToken,
+      name: user.name,
+      avatar: user.avatar,
+   })
 }
 
 // Register user
 const registerUser = async (req, res) => {
-   const { email, password, confirmPassword } = req.body
+   const { email, password, confirmPassword, name } = req.body
 
-   if (!email || !password || !confirmPassword) {
+   if (!email || !password || !confirmPassword || !name) {
       return res
          .status(400)
          .json({ error: 'Please fill all the required fields' })
@@ -72,12 +77,12 @@ const registerUser = async (req, res) => {
 
    // try to create
    try {
-      const user = await User.create({ email, password: hashedPassword })
+      const user = await User.create({ email, password: hashedPassword, name })
 
       // generate access token
       const accessToken = generateAccessToken(user._id)
 
-      res.status(200).json({ email, accessToken })
+      res.status(200).json({ email, accessToken, name, avatar: user.avatar })
    } catch (error) {
       res.status(400).json({ error: error.message })
    }

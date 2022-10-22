@@ -31,7 +31,7 @@ const UserTemplate = ({ page, children }) => {
             }`}>
             <div className="sidebar-content js-simplebar">
                <Link className="sidebar-brand" to="/user">
-                  <span className="align-middle">AdminKit</span>
+                  <span className="align-middle">MERN Blog</span>
                </Link>
                <ul className="sidebar-nav">
                   <li
@@ -160,11 +160,11 @@ const UserTemplate = ({ page, children }) => {
                            className="nav-link dropdown-toggle d-none d-sm-inline-block"
                            data-bs-toggle="dropdown">
                            <img
-                              src={image}
+                              src={`http://localhost:4000/public/avatars/${auth.avatar}`}
                               className="avatar img-fluid rounded me-2"
-                              alt={auth.email}
+                              alt={auth.name}
                            />
-                           <span className="text-dark me-2">{auth.email}</span>
+                           <span className="text-dark me-2">{auth.name}</span>
                         </div>
                         <div className="dropdown-menu dropdown-menu-end">
                            <Link className="dropdown-item" to="/user/profile">

@@ -14,8 +14,12 @@ export const authSlice = createSlice({
       LOGOUT: (state) => {
          state.value = null
       },
+      UPDATE_PROFILE: (state, action) => {
+         state.value.name = action.payload.name
+         state.value.avatar = action.payload.avatar
+      },
    },
 })
 
-export const { LOGIN, LOGOUT } = authSlice.actions
+export const { LOGIN, LOGOUT, UPDATE_PROFILE } = authSlice.actions
 export default authSlice.reducer

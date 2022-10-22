@@ -37,6 +37,8 @@ const App = () => {
                element={<ChangePassword />}
             />
          </Route>
+
+         {/* <Route path="*" element={<h1>Not found</h1>} /> */}
       </Routes>
    )
 }

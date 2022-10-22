@@ -6,7 +6,8 @@ const cors = require('cors')
 const path = require('path')
 
 // require routes
-const authRoutes = require('./routes/authRoute.js')
+const authRoutes = require('./routes/authRoute')
+const profileRoutes = require('./routes/profileRoute')
 
 // express app
 const app = express()
@@ -14,6 +15,7 @@ const app = express()
 // middleware
 app.use(cors())
 app.use(express.json())
+app.use('/public', express.static('backend/public'))
 
 app.use((req, res, next) => {
    console.log(req.path, req.method)
@@ -22,6 +24,7 @@ app.use((req, res, next) => {
 
 // routes
 app.use('/api/auth/', authRoutes)
+app.use('/api/profile/', profileRoutes)
 
 // Serve frontend
 if (process.env.NODE_ENV === 'production') {
