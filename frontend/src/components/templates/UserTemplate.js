@@ -161,7 +161,7 @@ const UserTemplate = ({ page, children }) => {
                            data-bs-toggle="dropdown">
                            <img
                               src={auth.avatar}
-                              className="avatar img-fluid rounded me-2"
+                              className="avatar img-fluid object-fit-cover rounded me-2"
                               alt={auth.name}
                            />
                            <span className="text-dark me-2">{auth.name}</span>

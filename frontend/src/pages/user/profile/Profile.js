@@ -93,11 +93,13 @@ const Profile = () => {
                   <div className="card-body">
                      <div className="row">
                         <div className="col-md-4">
-                           <img
-                              className="rounded w-100"
-                              src={auth.avatar}
-                              alt={auth.name}
-                           />
+                           <div className="ratio ratio-1x1">
+                              <img
+                                 className="object-fit-cover rounded w-100"
+                                 src={auth.avatar}
+                                 alt={auth.name}
+                              />
+                           </div>
                         </div>
                         <form
                            className="col-md-8"
@@ -132,8 +134,8 @@ const Profile = () => {
                                  ref={avatarRef}
                                  className="form-control form-control-lg"
                                  type="file"
-                                 accept=".jpg, .jpeg, .png"
                                  onChange={handleAvatarChange}
+                                 // accept=".jpg, .jpeg, .png"
                               />
                            </div>
 

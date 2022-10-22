@@ -14,3 +14,7 @@ body {
 .navbar svg {
    width: 18px;
 }
+
+.object-fit-cover {
+   object-fit: cover;
+}

@@ -20,7 +20,8 @@ const userSchema = new Schema(
       },
       avatar: {
          type: String,
-         default: 'avatar.jpg',
+         default:
+            'https://res.cloudinary.com/dqptawr0n/image/upload/v1666436390/avatar_uqxhml.jpg',
          unique: true,
       },
    },
