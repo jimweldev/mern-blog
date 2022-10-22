@@ -135,7 +135,7 @@ const Profile = () => {
                                  className="form-control form-control-lg"
                                  type="file"
                                  onChange={handleAvatarChange}
-                                 // accept=".jpg, .jpeg, .png"
+                                 accept=".jpg, .jpeg, .png"
                               />
                            </div>
 
