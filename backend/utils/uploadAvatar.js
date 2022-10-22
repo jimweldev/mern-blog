@@ -2,11 +2,9 @@ const multer = require('multer')
 
 // storage
 const storageAvatar = multer.diskStorage({
-   destination: function (req, file, cb) {
-      cb(null, './backend/public/avatars')
-   },
    filename: function (req, file, cb) {
-      cb(null, Date.now() + '-' + file.originalname)
+      const extension = file.originalname.split('.').pop()
+      cb(null, Date.now() + '.' + extension)
    },
 })
 

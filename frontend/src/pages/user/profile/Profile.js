@@ -95,7 +95,7 @@ const Profile = () => {
                         <div className="col-md-4">
                            <img
                               className="rounded w-100"
-                              src={`http://localhost:4000/public/avatars/${auth.avatar}`}
+                              src={auth.avatar}
                               alt={auth.name}
                            />
                         </div>

@@ -160,7 +160,7 @@ const UserTemplate = ({ page, children }) => {
                            className="nav-link dropdown-toggle d-none d-sm-inline-block"
                            data-bs-toggle="dropdown">
                            <img
-                              src={`http://localhost:4000/public/avatars/${auth.avatar}`}
+                              src={auth.avatar}
                               className="avatar img-fluid rounded me-2"
                               alt={auth.name}
                            />

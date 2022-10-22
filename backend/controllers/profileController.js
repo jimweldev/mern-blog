@@ -4,22 +4,28 @@ const validator = require('validator')
 
 const User = require('../models/userModel')
 
+const cloudinary = require('../utils/cloudinary')
+
 // update profile
 const updateProfile = async (req, res) => {
    const { email, name } = req.body
    const avatar = req.file?.filename || null
 
    try {
-      let body = {
-         email,
-         name,
-         avatar,
-      }
+      let body = {}
 
       if (!avatar) {
          body = {
             email,
             name,
+         }
+      } else {
+         const uploadedAvatar = await cloudinary.uploader.upload(req.file.path)
+
+         body = {
+            email,
+            name,
+            avatar: uploadedAvatar.secure_url,
          }
       }
 
