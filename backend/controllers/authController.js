@@ -64,7 +64,15 @@ const registerUser = async (req, res) => {
       return res.status(400).json({ error: 'Email is invalid' })
    }
 
-   if (!validator.isStrongPassword(password)) {
+   if (
+      !validator.isStrongPassword(password, {
+         minLength: 8,
+         minLowercase: 1,
+         minUppercase: 1,
+         minNumbers: 1,
+         minSymbols: 0,
+      })
+   ) {
       return res.status(400).json({ error: 'Password is not strong enough' })
    }
 

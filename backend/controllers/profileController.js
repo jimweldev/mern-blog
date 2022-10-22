@@ -46,7 +46,15 @@ const changePassword = async (req, res) => {
          .json({ error: 'Please fill all the required fields' })
    }
 
-   if (!validator.isStrongPassword(newPassword)) {
+   if (
+      !validator.isStrongPassword(newPassword, {
+         minLength: 8,
+         minLowercase: 1,
+         minUppercase: 1,
+         minNumbers: 1,
+         minSymbols: 0,
+      })
+   ) {
       return res.status(400).json({ error: 'Password is not strong enough' })
    }
 
