@@ -9,9 +9,10 @@ const cloudinary = require('../utils/cloudinary')
 const updateProfile = async (req, res) => {
    const { email, name, avatar } = req.body
 
-   const avatarFileType = avatar.split(';')[0]
+   const avatarFileType = avatar?.split(';')[0]
 
    if (
+      avatar &&
       !(
          avatarFileType === 'data:image/jpg' ||
          avatarFileType === 'data:image/jpeg' ||
