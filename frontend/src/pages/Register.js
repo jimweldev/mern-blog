@@ -83,7 +83,7 @@ const Register = () => {
                      />
                   </div>
                   <div className="mb-3">
-                     <label>Confirm Password</label>
+                     <label>Re-enter password</label>
                      <input
                         className="form-control form-control-lg"
                         type="password"

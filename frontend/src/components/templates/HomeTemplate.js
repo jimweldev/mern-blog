@@ -7,7 +7,7 @@ const HomeTemplate = ({ page, children }) => {
          <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-none mb-3">
             <div className="container">
                <Link className="navbar-brand text-dark" to="/">
-                  MERN Auth
+                  MERN Blog
                </Link>
                <button
                   className="navbar-toggler"

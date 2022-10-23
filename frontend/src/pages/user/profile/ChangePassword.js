@@ -31,6 +31,7 @@ const ChangePassword = () => {
          method: 'PATCH',
          headers: {
             'Content-Type': 'application/json',
+            Authorization: `Bearer ${auth.accessToken}`,
          },
          body: JSON.stringify(body),
       })
@@ -87,6 +88,7 @@ const ChangePassword = () => {
                         <input
                            className="form-control form-control-lg"
                            type="password"
+                           placeholder="Enter your password"
                            value={password}
                            onChange={(e) => {
                               setPassword(e.target.value)
@@ -98,6 +100,7 @@ const ChangePassword = () => {
                         <input
                            className="form-control form-control-lg"
                            type="password"
+                           placeholder="Enter your new password"
                            value={newPassword}
                            onChange={(e) => {
                               setNewPassword(e.target.value)
@@ -109,6 +112,7 @@ const ChangePassword = () => {
                         <input
                            className="form-control form-control-lg"
                            type="password"
+                           placeholder="Re-enter your new password"
                            value={confirmNewPassword}
                            onChange={(e) => {
                               setConfirmNewPassword(e.target.value)

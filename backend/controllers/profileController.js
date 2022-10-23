@@ -3,21 +3,19 @@ const bcrypt = require('bcrypt')
 const validator = require('validator')
 
 const User = require('../models/userModel')
-
 const cloudinary = require('../utils/cloudinary')
 
 // update profile
 const updateProfile = async (req, res) => {
-   const { email, name } = req.body
-   const avatar = req.file?.filename || null
-   const mimetype = req.file?.mimetype || null
+   const { email, name, avatar } = req.body
+
+   const avatarFileType = avatar.split(';')[0]
 
    if (
-      mimetype &&
       !(
-         mimetype == 'image/png' ||
-         mimetype == 'image/jpg' ||
-         mimetype == 'image/jpeg'
+         avatarFileType === 'data:image/jpg' ||
+         avatarFileType === 'data:image/jpeg' ||
+         avatarFileType === 'data:image/png'
       )
    ) {
       return res.status(400).json({ error: 'Invalid file type' })
@@ -28,14 +26,14 @@ const updateProfile = async (req, res) => {
 
       if (!avatar) {
          body = {
-            email,
             name,
          }
       } else {
-         const uploadedAvatar = await cloudinary.uploader.upload(req.file.path)
+         const uploadedAvatar = await cloudinary.uploader.upload(avatar, {
+            folder: 'mern-blog/avatars',
+         })
 
          body = {
-            email,
             name,
             avatar: uploadedAvatar.secure_url,
          }

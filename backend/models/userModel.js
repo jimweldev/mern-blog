@@ -21,7 +21,7 @@ const userSchema = new Schema(
       avatar: {
          type: String,
          default:
-            'https://res.cloudinary.com/dqptawr0n/image/upload/v1666436390/avatar_uqxhml.jpg',
+            'https://res.cloudinary.com/dqptawr0n/image/upload/v1666503564/mern-blog/avatars/avatar_r3jusj.jpg',
          unique: true,
       },
    },

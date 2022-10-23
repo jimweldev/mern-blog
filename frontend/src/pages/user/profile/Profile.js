@@ -19,25 +19,25 @@ const Profile = () => {
    const [name, setName] = useState(auth.name)
    const [avatar, setAvatar] = useState(null)
 
-   const handleAvatarChange = (e) => {
-      setAvatar(e.target.files[0])
-   }
-
    const handleUpdateProfile = async (e) => {
       e.preventDefault()
 
       setIsLoading(true)
       setError(null)
 
-      let formData = new FormData()
-
-      formData.append('email', auth.email)
-      formData.append('name', name)
-      formData.append('avatar', avatar)
+      const body = {
+         email: auth.email,
+         name,
+         avatar,
+      }
 
       const res = await fetch('/api/profile/update-profile', {
          method: 'PATCH',
-         body: formData,
+         headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${auth.accessToken}`,
+         },
+         body: JSON.stringify(body),
       })
 
       const data = await res.json()
@@ -94,11 +94,19 @@ const Profile = () => {
                      <div className="row">
                         <div className="col-md-4">
                            <div className="ratio ratio-1x1">
-                              <img
-                                 className="object-fit-cover rounded w-100"
-                                 src={auth.avatar}
-                                 alt={auth.name}
-                              />
+                              {avatar ? (
+                                 <img
+                                    className="object-fit-cover rounded w-100"
+                                    src={avatar}
+                                    alt={auth.name}
+                                 />
+                              ) : (
+                                 <img
+                                    className="object-fit-cover rounded w-100"
+                                    src={auth.avatar}
+                                    alt={auth.name}
+                                 />
+                              )}
                            </div>
                         </div>
                         <form
@@ -122,6 +130,7 @@ const Profile = () => {
                               <input
                                  className="form-control form-control-lg"
                                  type="text"
+                                 placeholder="Enter your name"
                                  value={name}
                                  onChange={(e) => {
                                     setName(e.target.value)
@@ -134,7 +143,15 @@ const Profile = () => {
                                  ref={avatarRef}
                                  className="form-control form-control-lg"
                                  type="file"
-                                 onChange={handleAvatarChange}
+                                 onChange={(e) => {
+                                    const reader = new FileReader()
+
+                                    reader.readAsDataURL(e.target.files[0])
+
+                                    reader.onloadend = () => {
+                                       setAvatar(reader.result)
+                                    }
+                                 }}
                                  accept=".jpg, .jpeg, .png"
                               />
                            </div>
