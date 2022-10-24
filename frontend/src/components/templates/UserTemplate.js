@@ -34,13 +34,19 @@ const UserTemplate = ({ page, children }) => {
                   <span className="align-middle">MERN Blog</span>
                </Link>
                <ul className="sidebar-nav">
-                  <li
-                     className={`sidebar-item ${
-                        page === 'dashboard' && 'active'
-                     }`}>
+                  <li className={`sidebar-item ${page === 'feed' && 'active'}`}>
                      <Link className="sidebar-link" to="/user">
                         <Sliders className="align-middle" />
-                        <span className="align-middle">Dashboard</span>
+                        <span className="align-middle">Feed</span>
+                     </Link>
+                  </li>
+                  <li
+                     className={`sidebar-item ${
+                        page === 'myPosts' && 'active'
+                     }`}>
+                     <Link className="sidebar-link" to="/user/my-posts">
+                        <Sliders className="align-middle" />
+                        <span className="align-middle">My Posts</span>
                      </Link>
                   </li>
                </ul>

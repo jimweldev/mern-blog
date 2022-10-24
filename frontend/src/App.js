@@ -12,9 +12,10 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 
 // USER PAGES
-import Dashboard from './pages/user/Dashboard'
+import Feed from './pages/user/Feed'
 import Profile from './pages/user/profile/Profile'
 import ChangePassword from './pages/user/profile/ChangePassword'
+import MyPosts from './pages/user/MyPosts'
 
 const App = () => {
    const auth = useSelector((state) => state.auth.value)
@@ -28,14 +29,15 @@ const App = () => {
             <Route path="/register" element={<Register />} />
          </Route>
 
-         {/* ADMIN ROUTES */}
+         {/* USER ROUTES */}
          <Route element={<UserRoutes auth={auth} />}>
-            <Route path="/user" element={<Dashboard />} />
+            <Route path="/user" element={<Feed />} />
             <Route path="/user/profile" element={<Profile />} />
             <Route
                path="/user/profile/change-password"
                element={<ChangePassword />}
             />
+            <Route path="/user/my-posts" element={<MyPosts />} />
          </Route>
 
          {/* <Route path="*" element={<h1>Not found</h1>} /> */}
