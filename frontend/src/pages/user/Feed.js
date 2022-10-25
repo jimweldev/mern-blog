@@ -168,7 +168,7 @@ const Feed = () => {
                                           post.images.map((image) => {
                                              return (
                                                 <div
-                                                   className="col-md-12 pointer"
+                                                   className="col-12 pointer"
                                                    data-fancybox={post._id}
                                                    data-src={image}
                                                    key={image}>
@@ -186,7 +186,7 @@ const Feed = () => {
                                           post.images.map((image) => {
                                              return (
                                                 <div
-                                                   className="col-md-6 pointer"
+                                                   className="col-6 pointer"
                                                    data-fancybox={post._id}
                                                    data-src={image}
                                                    key={image}>
@@ -205,7 +205,7 @@ const Feed = () => {
                                              if (index === 0) {
                                                 return (
                                                    <div
-                                                      className="col-md-12 pointer"
+                                                      className="col-12 pointer"
                                                       data-fancybox={post._id}
                                                       data-src={image}
                                                       key={image}>
@@ -221,7 +221,7 @@ const Feed = () => {
                                              } else {
                                                 return (
                                                    <div
-                                                      className="col-md-6 pointer"
+                                                      className="col-6 pointer"
                                                       data-fancybox={post._id}
                                                       data-src={image}
                                                       key={image}>
@@ -240,7 +240,7 @@ const Feed = () => {
                                           post.images.map((image) => {
                                              return (
                                                 <div
-                                                   className="col-md-6 pointer"
+                                                   className="col-6 pointer"
                                                    data-fancybox={post._id}
                                                    data-src={image}
                                                    key={image}>
@@ -259,7 +259,7 @@ const Feed = () => {
                                              if (index === 0 || index === 1) {
                                                 return (
                                                    <div
-                                                      className="col-md-6 pointer"
+                                                      className="col-6 pointer"
                                                       data-fancybox={post._id}
                                                       data-src={image}
                                                       key={image}>
@@ -275,7 +275,7 @@ const Feed = () => {
                                              } else {
                                                 return (
                                                    <div
-                                                      className="col-md-4 pointer"
+                                                      className="col-4 pointer"
                                                       data-fancybox={post._id}
                                                       data-src={image}
                                                       key={image}>
@@ -295,7 +295,7 @@ const Feed = () => {
                                              if (index === 0 || index === 1) {
                                                 return (
                                                    <div
-                                                      className="col-md-6 pointer"
+                                                      className="col-6 pointer"
                                                       data-fancybox={post._id}
                                                       data-src={image}
                                                       key={image}>
@@ -314,7 +314,7 @@ const Feed = () => {
                                              ) {
                                                 return (
                                                    <div
-                                                      className="col-md-4 pointer"
+                                                      className="col-4 pointer"
                                                       data-fancybox={post._id}
                                                       data-src={image}
                                                       key={image}>
@@ -330,7 +330,7 @@ const Feed = () => {
                                              } else if (index === 4) {
                                                 return (
                                                    <div
-                                                      className="col-md-4 position-relative  pointer"
+                                                      className="col-4 position-relative  pointer"
                                                       data-fancybox={post._id}
                                                       data-src={image}
                                                       key={image}>
@@ -358,7 +358,7 @@ const Feed = () => {
                                              } else {
                                                 return (
                                                    <div
-                                                      className="col-md-4 d-none"
+                                                      className="col-4 d-none"
                                                       data-fancybox={post._id}
                                                       data-src={image}
                                                       key={image}>
