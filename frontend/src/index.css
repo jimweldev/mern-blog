@@ -6,6 +6,10 @@ body {
    margin: 0 !important;
 }
 
+.dropdown {
+   position: relative !important;
+}
+
 .dropdown .dropdown-menu {
    top: 100% !important;
 }
