@@ -6,11 +6,11 @@ body {
    margin: 0 !important;
 }
 
-.dropdown {
+.card .dropdown {
    position: relative !important;
 }
 
-.dropdown .dropdown-menu {
+.card .dropdown .dropdown-menu {
    top: 100% !important;
 }
 
