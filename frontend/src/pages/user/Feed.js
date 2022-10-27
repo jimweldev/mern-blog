@@ -3,7 +3,6 @@ import UserTemplate from '../../components/templates/UserTemplate'
 import { useSelector } from 'react-redux'
 
 import Fancybox from '../../components/fancyapps/Fancybox'
-import { MoreHorizontal, Edit, Trash2 } from 'react-feather'
 
 import { formatDistanceToNow } from 'date-fns/esm'
 
@@ -101,56 +100,24 @@ const Feed = () => {
                         return (
                            <div className="card" key={post._id}>
                               <div className="card-header">
-                                 <div className="d-flex justify-content-between align-items-center">
-                                    <div className="d-flex justify-content-between align-items-center">
-                                       <div>
-                                          <img
-                                             src={post.avatar}
-                                             className="avatar img-fluid object-fit-cover rounded-circle me-2"
-                                             alt={post.name}
-                                          />
-                                       </div>
-                                       <div>
-                                          <h6 className="fw-bold mb-0">
-                                             {post.name}
-                                          </h6>
-                                          <p className="mb-0">
-                                             {formatDistanceToNow(
-                                                new Date(post.createdAt),
-                                                { addSuffix: true }
-                                             )}
-                                          </p>
-                                       </div>
+                                 <div className="d-flex justify-content-start align-items-center">
+                                    <div>
+                                       <img
+                                          src={post.avatar}
+                                          className="avatar img-fluid object-fit-cover rounded-circle me-2"
+                                          alt={post.name}
+                                       />
                                     </div>
-
-                                    <div className="dropdown">
-                                       <button
-                                          className="btn"
-                                          data-bs-toggle="dropdown">
-                                          <MoreHorizontal />
-                                       </button>
-                                       <ul className="dropdown-menu dropdown-menu-end">
-                                          <li>
-                                             <a
-                                                className="dropdown-item"
-                                                href="/">
-                                                <Edit className="align-middle me-2" />
-                                                <span className="align-middle">
-                                                   Update
-                                                </span>
-                                             </a>
-                                          </li>
-                                          <li>
-                                             <a
-                                                className="dropdown-item"
-                                                href="/">
-                                                <Trash2 className="align-middle me-2" />
-                                                <span className="align-middle">
-                                                   Delete
-                                                </span>
-                                             </a>
-                                          </li>
-                                       </ul>
+                                    <div>
+                                       <h6 className="fw-bold mb-0">
+                                          {post.name}
+                                       </h6>
+                                       <p className="mb-0">
+                                          {formatDistanceToNow(
+                                             new Date(post.createdAt),
+                                             { addSuffix: true }
+                                          )}
+                                       </p>
                                     </div>
                                  </div>
                               </div>

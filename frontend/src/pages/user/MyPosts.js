@@ -6,6 +6,7 @@ import Fancybox from '../../components/fancyapps/Fancybox'
 import { Plus, MoreHorizontal, Edit, Trash2 } from 'react-feather'
 
 import { formatDistanceToNow } from 'date-fns/esm'
+import { Link } from 'react-router-dom'
 
 const MyPosts = () => {
    const auth = useSelector((state) => state.auth.value)
@@ -142,24 +143,40 @@ const MyPosts = () => {
                                        </button>
                                        <ul className="dropdown-menu dropdown-menu-end">
                                           <li>
-                                             <a
+                                             <Link
                                                 className="dropdown-item"
-                                                href="/">
+                                                to={`/user/update/post/${post._id}`}>
                                                 <Edit className="align-middle me-2" />
                                                 <span className="align-middle">
                                                    Update
                                                 </span>
-                                             </a>
+                                             </Link>
                                           </li>
                                           <li>
-                                             <a
+                                             <button
                                                 className="dropdown-item"
-                                                href="/">
+                                                onClick={async () => {
+                                                   const res = await fetch(
+                                                      `/api/posts/${post._id}`,
+                                                      {
+                                                         method: 'DELETE',
+                                                         headers: {
+                                                            'Content-Type':
+                                                               'application/json',
+                                                            Authorization: `Bearer ${auth.accessToken}`,
+                                                         },
+                                                      }
+                                                   )
+
+                                                   if (res.ok) {
+                                                      fetchPosts()
+                                                   }
+                                                }}>
                                                 <Trash2 className="align-middle me-2" />
                                                 <span className="align-middle">
                                                    Delete
                                                 </span>
-                                             </a>
+                                             </button>
                                           </li>
                                        </ul>
                                     </div>
